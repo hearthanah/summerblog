@@ -1,3 +1,5 @@
+var Firebase = require("firebase");
+var myFirebaseRef = new Firebase("https://hlsummerblog.firebaseIO.com");
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -12,3 +14,8 @@ app.listen(8000, function () {
 
 app.use(express.static('static'));
 app.use(express.static('bower_components/bootstrap'))
+
+myFirebaseRef.set({
+	words: "Hello World~",
+	name: "Hanah"
+});
